@@ -12,6 +12,8 @@
 #include <stdlib.h>
 #include <iostream>
 
+USING_NS_ZMD;
+
 Thread::Thread(const char* name)
 {
 #ifndef _WIN32

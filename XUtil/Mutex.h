@@ -3,10 +3,13 @@
 
 #ifndef _WIN32
 #include <pthread.h>
-//#include <unistd.h>
 #else
 #include <Windows.h>
 #endif
+
+#include "Def.h"
+
+NS_ZMD_BEGIN
 
 class Mutex
 {
@@ -52,7 +55,7 @@ public:
     {
         pthread_mutexattr_t attr;
         pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-        pthread_mutex_init(&_mutex, &attr);
+        pthread_mutex_init(&m_mutex, &attr);
     }
     ~Thread_Mutex()
     {
@@ -126,5 +129,7 @@ private:
     unsigned int m_poolSize;
     volatile unsigned int m_poolCounter;
 };
+
+NS_ZMD_END
 
 #endif	//__MUTEX_H__

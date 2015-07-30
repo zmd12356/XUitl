@@ -1,8 +1,10 @@
 //zmd12356@qq.com 2013-7
 
 #include <iostream>
-#include "singleton.h"
+#include "Singleton.h"
 #include "Mutex.h"
+
+USING_NS_ZMD;
 
 class XABC : public Singleton<XABC>
 {

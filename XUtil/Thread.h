@@ -8,18 +8,19 @@
 #include <Windows.h>
 #endif
 
+#include "Def.h"
 #include <list>
 #include "Mutex.h"
 
-using namespace std;
-
 #ifndef _WIN32
-typedef list<pthread_t> thread_id_list;
+typedef std::list<pthread_t> thread_id_list;
 #else
-typedef list<HANDLE> thread_id_list;
+typedef std::list<HANDLE> thread_id_list;
 #endif
 
 typedef thread_id_list::iterator thread_id_iterator;
+
+NS_ZMD_BEGIN
 
 class Thread
 {
@@ -48,5 +49,7 @@ private:
 	static unsigned int __stdcall	run0(void* pVoid);
 #endif
 };
+
+NS_ZMD_END
 
 #endif//__THREAD_H__
